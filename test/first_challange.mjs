@@ -7,10 +7,10 @@ describe("1st day", function () {
     it("should solve puzzle", function () {
       clearReadMe();
       assert.equal(trebuchet("./1/test.txt"), 142);
-      appendReadMe("Trebuchet passes the test input ✅ \n");
+      appendReadMe("|1|1|Trebuchet|Sample|✅|\n");
 
       assert.equal(trebuchet("./1/data.txt"), 55002);
-      appendReadMe("Trebuchet passes the question input ✅ \n");
+      appendReadMe("|2|1|Trebuchet|Puzzle|✅|\n");
     });
   });
 });

@@ -7,7 +7,10 @@ export const readFromFile = (fileName) => {
 export const clearReadMe = () => {
   fs.writeFileSync(
     "./README.md",
-    "This repo contains my solutions for the Advent of Code 2023. \n"
+    `This repo contains my solutions for the Advent of Code 2023. \n\n
+| No | Day | Name |  Data  | Result |
+|----|-----|------|--------|--------|
+    `
   );
 };
 
