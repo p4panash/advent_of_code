@@ -1,6 +1,9 @@
 This repo contains my solutions for the Advent of Code 2023.
 
-| No  | Day | Name      | Data   | Result |
-| --- | --- | --------- | ------ | ------ |
-| 1   | 1   | Trebuchet | Sample | ✅     |
-| 2   | 1   | Trebuchet | Puzzle | ✅     |
+| No  | Day | Name         | Data     | Result |
+| --- | --- | ------------ | -------- | ------ |
+| 1   | 1   | Trebuchet    | Sample   | ✅     |
+| 2   | 1   | Trebuchet    | Puzzle   | ✅     |
+| 3   | 1   | Trebuchet p2 | Sample   | ✅     |
+| 4   | 1   | Trebuchet p2 | Handmade | ✅     |
+| 5   | 1   | Trebuchet p2 | Puzzle   | ✅     |
