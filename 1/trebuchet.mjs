@@ -1,7 +1,7 @@
 import { readFromFile } from "../utils.mjs";
 
-export const trebuchet = () => {
-  const data = readFromFile("./1/data.txt");
+export const trebuchet = (fileName) => {
+  const data = readFromFile(fileName);
   const lines = data.split("\n");
   var total_count = 0;
 
