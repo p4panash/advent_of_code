@@ -9,3 +9,5 @@ This repo contains my solutions for the Advent of Code 2023.
 | 5   | 1   | Trebuchet p2 | Puzzle   | ✅     |
 | 6   | 2   | Cube         | Sample   | ✅     |
 | 7   | 2   | Cube         | Puzzle   | ✅     |
+| 8   | 2   | Cube pt.2    | Sample   | ✅     |
+| 9   | 2   | Cube pt.2    | Puzzle   | ✅     |
