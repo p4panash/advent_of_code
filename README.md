@@ -11,3 +11,4 @@ This repo contains my solutions for the Advent of Code 2023.
 | 7   | 2   | Cube         | Puzzle   | ✅     |
 | 8   | 2   | Cube pt.2    | Sample   | ✅     |
 | 9   | 2   | Cube pt.2    | Puzzle   | ✅     |
+| 10  | 3   | Gear Ratios  | Sample   | ✅     |
