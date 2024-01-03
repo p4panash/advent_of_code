@@ -1,4 +1,9 @@
-This repo contains my solutions for the Advent of Code 2023.
+# Advent of Code 2023
+
+This uses `pnpm`. Available commands:
+
+- `start`
+- `test`
 
 | No  | Day | Name         | Data     | Result |
 | --- | --- | ------------ | -------- | ------ |
