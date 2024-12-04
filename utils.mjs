@@ -23,3 +23,7 @@ This uses \`pnpm\`. Available commands:
 export const appendReadMe = (text) => {
   fs.appendFileSync("./README.md", text);
 };
+
+export const writeToFile = (fileName, text) => {
+  fs.writeFileSync(`./${fileName}.txt`, text);
+};

@@ -1,7 +1,8 @@
-import { readFromFile } from "../utils.mjs";
+import { readFromFile, writeToFile } from "../utils.mjs";
 
 const SYMBOLS = /[-_!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]+/;
 const DIGITS = /^\d+$/;
+const map = [];
 
 export const gear = (fileName) => {
   const data = readFromFile(fileName);
@@ -11,7 +12,7 @@ export const gear = (fileName) => {
   lines.forEach((row, number) => {
     [...row].forEach((v, index) => {
       if (v.match(SYMBOLS)) {
-        [
+        const indexes = [
           [number - 1, index],
           [number - 1, index + 1],
           [number - 1, index - 1],
@@ -20,8 +21,9 @@ export const gear = (fileName) => {
           [number + 1, index],
           [number + 1, index + 1],
           [number + 1, index - 1],
-        ].forEach(([line, index]) => {
-          const neighbor = extractDigits(lines[line], index);
+        ];
+        indexes.forEach(([line, index]) => {
+          const neighbor = extractDigits(lines[line], index, line);
           if (neighbor != 0) {
             total += neighbor;
             const regExp = new RegExp(neighbor);
@@ -35,10 +37,12 @@ export const gear = (fileName) => {
     });
   });
 
+  printSteps();
+
   return total;
 };
 
-export const extractDigits = (string, index) => {
+export const extractDigits = (string, index, row) => {
   if (!string || index < 0 || index > string.length) return 0;
 
   let number = string[index];
@@ -48,6 +52,7 @@ export const extractDigits = (string, index) => {
   while (string[i] && number.match(DIGITS) && i >= 0) {
     number = string[i] + number;
     i -= 1;
+    markMap(row, i);
   }
 
   if (!number.match(DIGITS)) number = number.slice(1);
@@ -60,5 +65,19 @@ export const extractDigits = (string, index) => {
 
   if (!number.match(DIGITS)) number = number.slice(0, -1);
 
+  markMap(row, index);
   return parseInt(number);
+};
+
+const markMap = (i, j) => {
+  try {
+    map[i][j] = map[i][j] + 1;
+  } catch {
+    map[i][j] = [];
+    map[i][j] = 1;
+  }
+};
+
+const printSteps = () => {
+  writeToFile("map", map.map((x) => x.join("")).join("\r\n"));
 };
