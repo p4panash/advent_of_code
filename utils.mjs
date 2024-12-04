@@ -1,14 +1,23 @@
 import fs from "fs";
+import path from "path";
 
-export const readFromFile = (fileName) => {
-  return fs.readFileSync(fileName, "utf8");
+const resolveRootPath = (filePath) => {
+  if (filePath.startsWith("@")) {
+    const projectRoot = path.resolve();
+    return path.join(projectRoot, filePath.slice(1));
+  }
+  return filePath;
 };
 
-export const clearReadMe = () => {
+export const readFromFile = (fileName) => {
+  return fs.readFileSync(resolveRootPath(fileName), "utf8");
+};
+
+export const clearReadMe = (year = "2023") => {
   fs.writeFileSync(
-    "./README.md",
+    resolveRootPath(`@${year}/README.md`),
     `
-# Advent of Code 2023
+# Advent of Code ${year}
 
 This uses \`pnpm\`. Available commands:
 
@@ -20,8 +29,8 @@ This uses \`pnpm\`. Available commands:
   );
 };
 
-export const appendReadMe = (text) => {
-  fs.appendFileSync("./README.md", text);
+export const appendReadMe = (text, year = "2023") => {
+  fs.appendFileSync(resolveRootPath(`@${year}/README.md`), text);
 };
 
 export const writeToFile = (fileName, text) => {

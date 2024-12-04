@@ -1,4 +1,4 @@
-import { readFromFile } from "../utils.mjs";
+import { readFromFile } from "../../utils.mjs";
 
 export const cube = (fileName, red, green, blue) => {
   const CUBES = { red: red, green: green, blue: blue };

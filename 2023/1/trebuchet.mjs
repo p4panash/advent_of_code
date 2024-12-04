@@ -1,4 +1,4 @@
-import { readFromFile } from "../utils.mjs";
+import { readFromFile } from "../../utils.mjs";
 
 const DIGIT_WORDS = [
   "one",

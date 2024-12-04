@@ -1,4 +1,4 @@
-import { readFromFile, writeToFile } from "../utils.mjs";
+import { readFromFile, writeToFile } from "../../utils.mjs";
 
 const SYMBOLS = /[-_!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]+/;
 const DIGITS = /^\d+$/;
@@ -9,33 +9,37 @@ export const gear = (fileName) => {
   const lines = data.split("\n");
   var total = 0;
 
-  lines.forEach((row, number) => {
-    [...row].forEach((v, index) => {
-      if (v.match(SYMBOLS)) {
-        const indexes = [
-          [number - 1, index],
-          [number - 1, index + 1],
-          [number - 1, index - 1],
-          [number, index + 1],
-          [number, index - 1],
-          [number + 1, index],
-          [number + 1, index + 1],
-          [number + 1, index - 1],
-        ];
-        indexes.forEach(([line, index]) => {
-          const neighbor = extractDigits(lines[line], index, line);
-          if (neighbor != 0) {
-            total += neighbor;
-            const regExp = new RegExp(neighbor);
-            lines[line] = lines[line].replace(
-              regExp,
-              ".".repeat(neighbor.toString().length)
-            );
-          }
-        });
-      }
+  try {
+    lines.forEach((row, number) => {
+      [...row].forEach((v, index) => {
+        if (v.match(SYMBOLS)) {
+          const indexes = [
+            [number - 1, index],
+            [number - 1, index + 1],
+            [number - 1, index - 1],
+            [number, index + 1],
+            [number, index - 1],
+            [number + 1, index],
+            [number + 1, index + 1],
+            [number + 1, index - 1],
+          ];
+          indexes.forEach(([line, index]) => {
+            const neighbor = extractDigits(lines[line], index, line);
+            if (neighbor != 0) {
+              total += neighbor;
+              const regExp = new RegExp(neighbor);
+              lines[line] = lines[line].replace(
+                regExp,
+                ".".repeat(neighbor.toString().length)
+              );
+            }
+          });
+        }
+      });
     });
-  });
+  } catch {
+    return;
+  }
 
   printSteps();
 
