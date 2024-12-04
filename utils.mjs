@@ -24,7 +24,7 @@ This uses \`pnpm\`. Available commands:
 - \`start\`
 - \`test\`
 
-| No  | Day | Name         | Data     | Result |
+| No  | Day | Name         | Data     | Result |\n
 `
   );
 };
