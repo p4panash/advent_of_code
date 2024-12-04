@@ -4,12 +4,10 @@
   "description": "Advent of Code",
   "main": "index.mjs",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha test",
+    "test_2024": "mocha test/2024",
     "start": "node index.mjs",
     "debug": "node inspect index.mjs"
-  },
-  "mocha": {
-    "spec": "test/**/*.mjs"
   },
   "keywords": [],
   "author": "",
