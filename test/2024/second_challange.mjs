@@ -1,5 +1,5 @@
 import assert from "assert";
-import { red_reports } from "../../2024/2/red_reports.mjs";
+import { red_reports, red_reports2 } from "../../2024/2/red_reports.mjs";
 import { clearReadMe } from "../../utils.mjs";
 
 describe("2nd day", () => {
@@ -15,12 +15,15 @@ describe("2nd day", () => {
       // appendReadMe("|1|1|Historian|Sample|✅|\n\n");
     });
   });
-  // describe("#historian p2", () => {
-  //   it("should solve sample", () => {
-  //     assert.equal(historian2("@2024/1/sample2.txt"), 31);
-  //   });
-  //   it("should solve sample", () => {
-  //     assert.equal(historian2("@2024/1/puzzle.txt"), 23177084);
-  //   });
-  // });
+  describe("#Red-Nosed Reports p2", () => {
+    it("should solve sample", () => {
+      assert.equal(red_reports2("@2024/2/sample.txt"), 4);
+    });
+    it("should solve handmade", () => {
+      assert.equal(red_reports2("@2024/2/handmade.txt"), 7);
+    });
+    it("should solve puzzle", () => {
+      assert.equal(red_reports2("@2024/2/puzzle.txt"), 493);
+    });
+  });
 });
